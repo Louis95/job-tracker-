@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}New Venue{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="POST" action="/newjob">
+      <h3 class="form-heading">New Job <a href="{{ url_for('main.index') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+      <div class="form-group">
+        <label for="name">Company</label>
+          <input class="form-control" type="text" name="company" placeholder="Company" autofocus="">
+
+      </div>
+      <div class="form-group">
+            <label for="name">Position</label>
+          <input class="form-control" type="text" name="position" placeholder="Position" autofocus="">
+
+      </div>
+
+      <div class="form-group">
+        <label for="address">Website</label>
+          <input class="form-control" type="text" name="website" placeholder="Website" autofocus="">
+
+      </div>
+      <div class="form-group">
+          <label for="status">Select Status</label>
+          <select name="status">
+          {% for jobstatus in jobstatus %}
+            <option value="{{ jobstatus.name }}" SELECTED>{{ jobstatus.value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input class="form-control" type="text" name="description" placeholder="Description" autofocus="">
+        </div>
+      <input type="submit" value="Create Job" style="background: #008751; border-color: #008751; "class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Jobs{% endblock %}
+{% block content %}
+
+<section>
+	<div class="row">
+		{%for jobs in jobs_for_user %}
+		<div class="col-sm-4">
+			<div>
+				<h6>{{ jobs }}</h6>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% endblock %}
